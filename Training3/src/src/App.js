@@ -6,8 +6,9 @@ import Modal from './components/Modal/Modal';
 class App extends React.Component {
   constructor(){
     super();
-    this.state ={
+    this.state = {
       isVisible: false,
+      dataModal: '',
     }
   }
   openModal = () => {
@@ -20,17 +21,32 @@ class App extends React.Component {
       isVisible: false,
     });
   }
+  handlerDataModal = (event) => {
+    this.setState({
+      dataModal: event.target.value,
+    });
+  }
+  componentDidMount(){
+    
+  }
+  componentWillUnmount() {
+   
+  }
   render(){
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />        
+          <span>{this.state.dataModal}</span>     
+          <img src={logo} className="App-logo" alt="logo" />          
         </header>      
         <div>
           <button className="open-modal" onClick={this.openModal}>Open Modal </button>
+          
           <Modal 
             isVisible={this.state.isVisible} 
-            close={this.closeModal}
+            closeModal={this.closeModal}
+            modalContent={this.state.dataModal}
+            handlerDataModal={this.handlerDataModal}
            />
         </div>
       </div>
