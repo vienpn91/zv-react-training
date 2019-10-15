@@ -27,7 +27,7 @@ class App extends React.Component {
     });
   }
   componentDidMount(){
-    
+    document.getElementById('openModal').addEventListener('click', this.openModal);
   }
   componentWillUnmount() {
    
@@ -40,8 +40,8 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />          
         </header>      
         <div>
-          <button className="open-modal" onClick={this.openModal}>Open Modal </button>
-          
+          <button id="openModal" className="open-modal">Open Modal Dom Event </button>
+          <button id="openModals" className="open-modal" onClick={this.openModal}>Open Modal </button>
           <Modal 
             isVisible={this.state.isVisible} 
             closeModal={this.closeModal}
