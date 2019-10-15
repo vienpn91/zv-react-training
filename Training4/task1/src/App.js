@@ -18,8 +18,8 @@ export default class App extends Component {
       dataItems: [],
       isLoaded: false,
     }
-    this.handlerGetMoreJokeDebounced = _debounce(this.fetchAPI, 10000);
-    this.handlerGetMoreJokeThrottle = _throttle(this.handlerGetMoreJoke, 10000);
+    this.handlerGetMoreJokeDebounced = _debounce(this.fetchAPI, 1000);
+    this.handlerGetMoreJokeThrottle = _throttle(this.handlerGetMoreJoke, 1000);
   }
   fetchAPI = () => {
     fetch("https://official-joke-api.appspot.com/random_ten")
@@ -50,47 +50,47 @@ export default class App extends Component {
     const { error, isLoaded, dataItems } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+    }
+    if (!isLoaded) {
       return (
         <div className="loading">
           <span>Loading....</span>
         </div>
       );
-    } else {
-      return (
-        <List>
-          {
-            dataItems.map((dataItem) =>
-              <ListItem key={dataItem.id} alignItems="flex-start" style={{borderBottom: '1px solid rgba(0, 0, 0, 0.54)'}}>
-                <React.Fragment>
-                  <ListItemAvatar>
-                    <Avatar alt="Remy Sharp" src="https://avatars2.githubusercontent.com/u/40975587?s=460&v=4" />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary= { dataItem.punchline }
-                    secondary={
-                      <React.Fragment>
-                        <Typography
-                          component="span"
-                          variant="body2"
-                          color="textPrimary"
-                        >
-                        { dataItem.type }
-                        </Typography>
-                        {` - ` + dataItem.setup }
-                      </React.Fragment>
-                    }              
-                  />
-                </React.Fragment>
-              </ListItem>
-            )
-          }
-          <Fab onClick={this.handlerGetMoreJoke} style={{margin: '20px auto', display: 'flex'}} variant="extended" color="primary" aria-label="add">
-            Get more joke
-          </Fab>
-        </List>
-      );
     }
+    return (
+      <List>
+        {
+          dataItems.map((dataItem) =>
+            <ListItem key={dataItem.id} alignItems="flex-start" style={{borderBottom: '1px solid rgba(0, 0, 0, 0.54)'}}>
+              <React.Fragment>
+                <ListItemAvatar>
+                  <Avatar alt="Remy Sharp" src="https://avatars2.githubusercontent.com/u/40975587?s=460&v=4" />
+                </ListItemAvatar>
+                <ListItemText
+                  primary= { dataItem.punchline }
+                  secondary={
+                    <React.Fragment>
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="textPrimary"
+                      >
+                      { dataItem.type }
+                      </Typography>
+                      {` - ` + dataItem.setup }
+                    </React.Fragment>
+                  }              
+                />
+              </React.Fragment>
+            </ListItem>
+          )
+        }
+        <Fab onClick={this.handlerGetMoreJoke} style={{margin: '20px auto', display: 'flex'}} variant="extended" color="primary" aria-label="add">
+          Get more joke
+        </Fab>
+      </List>
+    );
   }
   
 }
