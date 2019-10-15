@@ -8,7 +8,7 @@ class App extends React.Component {
     super();
     this.state = {
       isVisible: false,
-      dataModal: '',
+      dataModal: 'Change Text Modal Here',
     }
   }
   openModal = () => {
