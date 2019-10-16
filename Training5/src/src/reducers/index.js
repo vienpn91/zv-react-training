@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
+import counter from './counter';
 
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
-    example: () => ({}),
+    counter,
     ...injectedReducers,
   });
 
