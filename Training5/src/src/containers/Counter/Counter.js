@@ -7,6 +7,7 @@ import {
 
 const mapStateToProps = state => ({
   count: CounterSelector.getCount(state),
+  // count: 'CounterSelector.getCount(state)',
 })
 
 const mapDispatchToProps = {

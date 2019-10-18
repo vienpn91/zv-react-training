@@ -20,3 +20,12 @@
 .App-link {
   color: #09d3ac;
 }
+
+.ant-layout-header{
+  background-color: #f9f9f9;
+}
+.ant-list-item-meta-title{
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+}
