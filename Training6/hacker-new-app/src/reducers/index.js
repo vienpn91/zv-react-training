@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
-import todo from './todo';
+import hackerDetails from './HackerDetails';
 
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
+    hackerDetails,
     ...injectedReducers,
   });
 

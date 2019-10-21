@@ -1,0 +1,12 @@
+.group{
+  display: flex;
+  margin-right: 15px;
+}
+.title{
+  font-weight: bold;
+  margin-right: 5px;
+}
+.group span{
+  text-transform: capitalize ;
+
+}

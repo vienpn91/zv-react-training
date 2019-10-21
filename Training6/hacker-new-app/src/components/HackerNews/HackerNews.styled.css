@@ -1,0 +1,84 @@
+.card-container{
+  display: flex;
+  padding: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: calc(100% - 2em);
+}
+
+.card{  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0rem;
+  flex: 0 0 calc(25% - 22px);
+  margin: 0 10px 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .img{
+  height: 7em;
+  width: 100%;
+  background: #ff8856;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+}
+
+.card-body{
+  padding: 20px 10px;
+}
+
+.card-title{
+  font-size: 18px;
+  margin: 10px;
+}
+
+.card-text{
+  font-size: 14px;
+}
+.btn{
+  background-color: #ff8856;
+  height: 3em;
+  text-decoration: none;
+  width: 10em;
+  font-size: 14px;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  
+}
+.btn span{
+  color: #fff;
+}
+
+.btn:hover{
+  opacity: .7;
+}
+.btn-hacker-new{
+  background: none;
+  border: none;
+  color: #ff8856;
+
+}
+.btn-hacker-new i{
+  cursor: pointer;
+  margin-right: 8px;
+}
+.btn-hacker-new:hover{
+  color: #000;
+}
+.btn-hacker-new:focus{
+  outline: none;
+}
