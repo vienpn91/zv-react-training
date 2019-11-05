@@ -4,16 +4,14 @@ import {
   actions as detailAction,
   selectors as detailSelector
 } from '../../reducers/hackerdetails';
-console.log('---detail action ---');
-console.log({ detailAction })
-console.log('---detail end action ---');
+
 
 const mapStateToProps = (state) => ({
   bookmarkId: detailSelector.gethackerdetails(state),
 })
 
 const mapDispatchToProps = {   
-  insertTodo: detailAction.insertTodo,
+  addBookmark: detailAction.addBookmark,
   deleteTodo: detailAction.deleteTodo,
   completedTodo: detailAction.completedTodo,
 }

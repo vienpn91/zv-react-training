@@ -1,29 +1,36 @@
-const ADD_HACKERDETAILS = 'hackerdetails/ADD_HACKERDETAILS';
+const ADD_BOOKMARK = 'hackerdetails/ADD_BOOKMARK';
 
-const addhackerdetails = () =>({
-  type: ADD_HACKERDETAILS,
-  text: ''
+const addBookmark = (idBookMark) =>({
+  type: ADD_BOOKMARK,
+  idBookMark
 })
 
 export const actions = {
-  addhackerdetails, 
+  addBookmark, 
 }
 
 
-const gethackerdetails = ({ hackerDetail123 }) => hackerDetail123.bookmarkId;
+const gethackerdetails = ({ hackerDetail123 }) => hackerDetail123.bookmarkList;
 
 export const selectors = {
   gethackerdetails,
 }
 
 const initialState = {
-  bookmarkId: [{abc: 'vienpn'}],
+  bookmarkList: [],
+  savepostList: [],
 }
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case ADD_HACKERDETAILS: {
-      return state;
+    case ADD_BOOKMARK: {
+      const newBookmark = action.idBookMark      
+      const addNewBookmark = [...state.bookmarkList, newBookmark];
+      const newState = {
+        ...state,
+        bookmarkList: addNewBookmark
+      }
+      return newState;
     }
     default: return state;
   }
