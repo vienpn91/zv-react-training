@@ -38,9 +38,11 @@ export default class HackerDetails extends Component {
     
   }
   render() {
-    const { isVisible, closeModal, hackerDetailsId } = this.props;
+    const { isVisible, closeModal, hackerDetailsId, bookmarkId} = this.props;
     const { dataHackerDetails } = this.state;
-    console.log(dataHackerDetails)
+    console.log('main')
+    console.log(bookmarkId)
+    console.log('main end')
     return (
       <div>
         <Modal

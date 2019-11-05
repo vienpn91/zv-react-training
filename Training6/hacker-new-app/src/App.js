@@ -12,7 +12,7 @@ const { store } = createStore();
 const { TabPane } = Tabs;
 
 function callback(key) {
-  console.log(key);
+  console.log('callback' + key);
 }
 function App() {
   return (

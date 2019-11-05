@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import hackerDetail123 from './HackerDetails';
+import hackerDetail123 from './hackerdetails';
 
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({

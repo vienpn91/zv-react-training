@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import './HackerNews.styled.css';
-import HackerDetails from '../HackerDetails';
+import HackerDetails from '../../containers/HackerDetails';
 import { Pagination, Icon } from 'antd';
 export default class HackerNews extends Component {
     constructor(props){
