@@ -10,7 +10,7 @@ export const actions = {
 }
 
 
-const gethackerdetails = ({ bookmark }) => gethackerdetails.bookmark;
+const gethackerdetails = ({ hackerDetail123 }) => hackerDetail123.bookmark;
 
 export const selectors = {
   gethackerdetails,

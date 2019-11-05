@@ -23,7 +23,7 @@ export const actions = {
   completedTodo
 }
 
-const getCount = ({ todo }) => todo.todolist;
+const getCount = ({ todoabc }) => todoabc.todolist;
 
 export const selectors = {
   getCount,

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
-import todo from './todo';
+import todoabc from './todo';
 
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     counter,
-    todo, 
+    todoabc, 
     ...injectedReducers,
   });
 

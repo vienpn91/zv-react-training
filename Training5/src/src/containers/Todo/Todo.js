@@ -8,7 +8,7 @@ import {
 console.log({ TodoAction })
 
 const mapStateToProps = (state) => ({
-  todo: TodoSelector.getCount(state),
+  todoList: TodoSelector.getCount(state),
 })
 
 const mapDispatchToProps = {   

@@ -8,7 +8,7 @@ import { Tabs } from 'antd';
 import 'antd/dist/antd.css';
 import HackerNew  from './components/HackerNews';
 
-
+const { store } = createStore();
 const { TabPane } = Tabs;
 
 function callback(key) {

@@ -20,7 +20,7 @@ export default class Todo extends Component {
 
   render() {
     const { noteData } = this.state;
-    const { insertTodo, todo , deleteTodo, completedTodo } = this.props;
+    const { insertTodo, todoList , deleteTodo, completedTodo } = this.props;
     return (
       <Layout>
          <Header style={{background: '#f9f9f9'}}>
@@ -54,7 +54,7 @@ export default class Todo extends Component {
                 <List
                   className="hihi"
                   itemLayout="horizontal"
-                  dataSource={todo}
+                  dataSource={todoList}
                   renderItem={(item, index) => (
                     <List.Item key={index} style={{display:'flex',alignItems:'end'}}>
                       <Checkbox style={{marginRight: '5px'}} 
