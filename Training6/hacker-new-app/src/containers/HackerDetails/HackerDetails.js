@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {   
-  addBookmark: detailAction.addBookmark,
+  // addBookmark: detailAction.addBookmark,
   deleteTodo: detailAction.deleteTodo,
   completedTodo: detailAction.completedTodo,
 }
