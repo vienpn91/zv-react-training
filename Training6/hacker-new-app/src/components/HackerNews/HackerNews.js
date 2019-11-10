@@ -73,36 +73,19 @@ export default class HackerNews extends Component {
   };
   componentDidMount() {}
   callback = (key) => {
-    const { bookmarkId, savePots } = this.props  
-    
-    bookmarkId.map((bookmarkIds, index) => (
-      Axios.get(`https://hacker-news.firebaseio.com/v0/item/${bookmarkIds}.json`)
-        .then(result =>
-          this.setState( state => {
-            console.log(state)
-            const newBookmark = {...result.data}
-            const addNewBookmark = [...state.dataHackerBookmarks, newBookmark];            
-            return {
-              dataHackerBookmarks: addNewBookmark
-            };
-          }))
-        .catch(error =>
-          this.setState({
-            isLoaded: true,
-            error: error
-        }))
-        .finally(function () {
-        })  
-      ))
-      bookmarkId.map((savePots, index) => (
-        Axios.get(`https://hacker-news.firebaseio.com/v0/item/${savePots}.json`)
+    const { bookmarkId, savePostId } = this.props  
+    console.log(bookmarkId,savePostId);
+    if(bookmarkId.length > 0){
+      bookmarkId.map((bookmarkIds, index) => (
+        Axios.get(`https://hacker-news.firebaseio.com/v0/item/${bookmarkIds}.json`)
           .then(result =>
             this.setState( state => {
-              console.log(state)
+              console.log(state)            
               const newBookmark = {...result.data}
-              const addNewBookmark = [...state.dataHackerSave, newBookmark];            
+              const addNewBookmark = [...state.dataHackerBookmarks, newBookmark];            
               return {
-                dataHackerSave: addNewBookmark
+                ...state,
+                dataHackerBookmarks: addNewBookmark
               };
             }))
           .catch(error =>
@@ -113,6 +96,30 @@ export default class HackerNews extends Component {
           .finally(function () {
           })  
         ))
+    }
+   
+    if(savePostId.length > 0){
+      savePostId.map((savePots, index) => (
+          Axios.get(`https://hacker-news.firebaseio.com/v0/item/${savePots}.json`)
+            .then(result =>
+              this.setState( state => {
+                const newBookmark = {...result.data}
+                const addNewBookmark = [...state.dataHackerSave, newBookmark];            
+                return {
+                  ...state,
+                  dataHackerSave: addNewBookmark
+                };
+              }))
+            .catch(error =>
+              this.setState({
+                isLoaded: true,
+                error: error
+            }))
+            .finally(function () {
+            })  
+          ))
+      }
+      
      
   }
   render() {
@@ -120,6 +127,7 @@ export default class HackerNews extends Component {
     const {
       dataHackerDetails,
       dataHackerNews,
+      dataHackerSave,
       dataHackerBookmarks,
       isLoaded,
       error,
@@ -205,7 +213,7 @@ export default class HackerNews extends Component {
         </TabPane>
         <TabPane tab="All Post Your Bookmark" key="3">
         {
-            dataHackerBookmarks.map((dataHackerBookmark, index) => (
+            dataHackerSave.map((dataHackerBookmark, index) => (
               <div key ={index} className="hacker-new-item">
                 <div className="group">
                   <div className="group">

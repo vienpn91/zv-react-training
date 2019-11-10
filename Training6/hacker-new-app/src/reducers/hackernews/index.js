@@ -17,9 +17,10 @@ export const actions = {
 
 
 const gethackernews = ({ hackerNews123 }) => hackerNews123.bookmarkList;
-const savePots = ({ hackerNews123 }) => hackerNews123.savepostList;
+const savePostId = ({ hackerNews123 }) => hackerNews123.savepostList;
 export const selectors = {
   gethackernews,
+  savePostId,
 }
 
 const initialState = {
