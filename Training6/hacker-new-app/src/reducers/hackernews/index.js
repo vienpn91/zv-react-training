@@ -1,17 +1,23 @@
 const ADD_BOOKMARK = 'hackernews/ADD_BOOKMARK';
+const SAVE_POST = 'hackernews/SAVE_POST';
 
 const addBookmark = (idBookMark) =>({
   type: ADD_BOOKMARK,
   idBookMark
 })
+const savePosts = (idPost) =>({
+  type: SAVE_POST,
+  idPost
+})
 
 export const actions = {
-  addBookmark, 
+  addBookmark,
+  savePosts 
 }
 
 
 const gethackernews = ({ hackerNews123 }) => hackerNews123.bookmarkList;
-
+const savePots = ({ hackerNews123 }) => hackerNews123.savepostList;
 export const selectors = {
   gethackernews,
 }
@@ -29,6 +35,15 @@ export default function reducer(state = initialState, action) {
       const newState = {
         ...state,
         bookmarkList: addNewBookmark
+      }
+      return newState;
+    }
+    case SAVE_POST: {
+      const newidPost = action.idPost      
+      const addNewidPost = [...state.bookmarkList, newidPost];
+      const newState = {
+        ...state,
+        bookmarkList: addNewidPost
       }
       return newState;
     }

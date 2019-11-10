@@ -73,7 +73,7 @@ export default class HackerNews extends Component {
   };
   componentDidMount() {}
   callback = (key) => {
-    const { bookmarkId } = this.props  
+    const { bookmarkId, savePots } = this.props  
     
     bookmarkId.map((bookmarkIds, index) => (
       Axios.get(`https://hacker-news.firebaseio.com/v0/item/${bookmarkIds}.json`)
@@ -94,10 +94,29 @@ export default class HackerNews extends Component {
         .finally(function () {
         })  
       ))
+      bookmarkId.map((savePots, index) => (
+        Axios.get(`https://hacker-news.firebaseio.com/v0/item/${savePots}.json`)
+          .then(result =>
+            this.setState( state => {
+              console.log(state)
+              const newBookmark = {...result.data}
+              const addNewBookmark = [...state.dataHackerSave, newBookmark];            
+              return {
+                dataHackerSave: addNewBookmark
+              };
+            }))
+          .catch(error =>
+            this.setState({
+              isLoaded: true,
+              error: error
+          }))
+          .finally(function () {
+          })  
+        ))
      
   }
   render() {
-    const { bookmarkId, addBookmark } = this.props;  
+    const { bookmarkId, addBookmark, savePosts } = this.props;  
     const {
       dataHackerDetails,
       dataHackerNews,
@@ -144,6 +163,7 @@ export default class HackerNews extends Component {
                 isVisible={visible}
                 closeModal={this.handleCancel}
                 hackerDetailsId={dataHackerDetails}
+                savePosts ={savePosts}
                 addBookmark ={addBookmark}
               />
               {/* <Pagination defaultCurrent={1} total={50} /> */}
@@ -184,7 +204,37 @@ export default class HackerNews extends Component {
           }     
         </TabPane>
         <TabPane tab="All Post Your Bookmark" key="3">
-          All Post Your Bookmark
+        {
+            dataHackerBookmarks.map((dataHackerBookmark, index) => (
+              <div key ={index} className="hacker-new-item">
+                <div className="group">
+                  <div className="group">
+                    <span className="title">Post ID:</span>
+                    <span> {dataHackerBookmark.id} </span>
+                  </div>
+                  <div className="group">
+                    <span className="title">Type: </span>
+                    <span>{dataHackerBookmark.type} </span>
+                  </div>
+                  <div className="group">
+                    <span className="title">Score: </span>
+                    <span>{dataHackerBookmark.score} </span>
+                  </div>
+                  <div className="group">
+                    <span className="title">Author: </span>
+                    <span>{dataHackerBookmark.by} </span>
+                  </div>
+                </div>
+                <div className="group">
+                  <span> {dataHackerBookmark.title} </span>
+                </div>
+                <div className="group">
+                  <span className="title">Answer: </span>
+                  <span>{dataHackerBookmark.text} </span>
+                </div>                   
+              </div>
+            ))
+          }
         </TabPane>
       </Tabs>
     );

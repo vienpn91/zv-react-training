@@ -8,10 +8,12 @@ import {
 
 const mapStateToProps = (state) => ({
   bookmarkId: detailSelector.gethackernews(state),
+  savePots: detailSelector.gethackernews(state),
 })
 
 const mapDispatchToProps = {   
   addBookmark: detailAction.addBookmark,
+  savePost: detailAction.savePosts,
   deleteTodo: detailAction.deleteTodo,
   completedTodo: detailAction.completedTodo,
 }
