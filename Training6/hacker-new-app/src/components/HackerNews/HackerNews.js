@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import './HackerNews.styled.css';
-import HackerDetails from '../HackerDetails';
+import HackerDetails from '../../containers/HackerDetails/HackerDetails';
 import { Pagination, Icon } from 'antd';
 export default class HackerNews extends Component {
     constructor(props){
@@ -76,7 +76,8 @@ export default class HackerNews extends Component {
   }
   render() {
     const { dataHackerDetails, dataHackerNews, isLoaded, error, visible } = this.state;
-    console.log(dataHackerDetails);
+    const { dataHackerNew } = this.props;
+    console.log(dataHackerNew);
     if(error)
       return( 
         <div> error: {error}</div>

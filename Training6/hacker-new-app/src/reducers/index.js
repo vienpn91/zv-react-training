@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import hackerDetails from './HackerDetails';
+import hackernewroot from './hackernews';
+import hackerdetailsroot from './hackerdetails'
 
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
-    hackerDetails,
+    hackernewroot,
+    hackerdetailsroot,
     ...injectedReducers,
   });
 

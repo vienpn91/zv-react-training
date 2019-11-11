@@ -38,9 +38,8 @@ export default class HackerDetails extends Component {
     
   }
   render() {
-    const { isVisible, closeModal, hackerDetailsId } = this.props;
-    const { dataHackerDetails } = this.state;
-    console.log(dataHackerDetails)
+    const { isVisible, closeModal, hackerDetailsId, handleBookmark, isBookmark,handleSavePost, dataHackerBookmark } = this.props;
+    const { dataHackerDetails } = this.state;    
     return (
       <div>
         <Modal
@@ -49,12 +48,15 @@ export default class HackerDetails extends Component {
           onOk={closeModal}
           onCancel={closeModal}
           footer={[
-            <Button key="back" onClick={this.handleCancel}>
-              Bookmark
-            </Button>,
-            <Button key="submit" type="primary" onClick={this.handleOk}>
+            <Button disabled={isBookmark} key="save" type="primary" onClick={() => { handleSavePost(hackerDetailsId.dataHackerNew) }}>
               Save Post
             </Button>,
+            <Button
+              key="bookmark"
+              disabled={isBookmark}
+              onClick={ () => { handleBookmark(hackerDetailsId.dataHackerNew) }}>
+              Bookmark
+            </Button>   
           ]}
         >
           {
@@ -84,7 +86,8 @@ export default class HackerDetails extends Component {
                 <div className="group">
                   <span className="title">Answer: </span>
                   <span>{dataHackerDetails.text} </span>
-                </div>                   
+                </div>  
+                              
               </div>
               : ''
           }     
