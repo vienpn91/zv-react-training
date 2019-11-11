@@ -38,7 +38,7 @@ export default class HackerDetails extends Component {
     
   }
   render() {
-    const { isVisible, closeModal,addBookmark , hackerDetailsId, savePosts} = this.props;
+    const { isVisible, closeModal,addBookmark, isBookmark, isSavePost, hackerDetailsId, savePosts} = this.props;
     const { dataHackerDetails } = this.state;
     return (
       <div>
@@ -48,10 +48,10 @@ export default class HackerDetails extends Component {
           onOk={closeModal}
           onCancel={closeModal}
           footer={[
-            <Button key="submit" type="primary" onClick={()=> { addBookmark(hackerDetailsId.dataHackerNew)}}>
+            <Button key="bookmark" disabled={isBookmark} type="primary" onClick={()=> { addBookmark(hackerDetailsId.dataHackerNew)}}>
               Bookmark
             </Button>,
-            <Button key="back" onClick={()=> { savePosts(hackerDetailsId.dataHackerNew)}}>            
+            <Button key="news" disabled={isSavePost}  onClick={()=> { savePosts(hackerDetailsId.dataHackerNew)}}>            
               Save Post
             </Button>,
           ]}

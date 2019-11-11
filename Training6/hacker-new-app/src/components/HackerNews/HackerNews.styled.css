@@ -82,3 +82,6 @@
 .btn-hacker-new:focus{
   outline: none;
 }
+.hacker-new-item{
+  padding: 20px;
+}

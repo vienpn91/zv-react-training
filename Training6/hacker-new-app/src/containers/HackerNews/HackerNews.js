@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import HackerNews from '../../components/HackerNews';
+
 import {
   actions as detailAction,
   selectors as detailSelector
 } from '../../reducers/hackernews';
 
-
-const mapStateToProps = (state) => ({
-  bookmarkId: detailSelector.gethackernews(state),
-  savePostId: detailSelector.savePostId(state),
-})
+const mapStateToProps =  (state, ownProps) => {  
+  return{
+    bookmarkId: detailSelector.gethackernews(state),
+    savePostId: detailSelector.savePostId(state),
+  }
+}
 
 const mapDispatchToProps = {   
   addBookmark: detailAction.addBookmark,

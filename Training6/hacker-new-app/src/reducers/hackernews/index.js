@@ -41,10 +41,10 @@ export default function reducer(state = initialState, action) {
     }
     case SAVE_POST: {
       const newidPost = action.idPost      
-      const addNewidPost = [...state.bookmarkList, newidPost];
+      const addNewidPost = [...state.savepostList, newidPost];
       const newState = {
         ...state,
-        bookmarkList: addNewidPost
+        savepostList: addNewidPost
       }
       return newState;
     }
